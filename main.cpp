@@ -1,15 +1,8 @@
-// correct the include path later
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-#define WIDTH 720
-#define HEIGHT 720
-#define FONT_SIZE 32
-#define BALL_SPEED 16
-#define SPEED 9
-#define SIZE 16
-#define PI 3.14159265358979323846
+#include "Constants.h"
 
 SDL_Renderer* renderer;
 SDL_Window* window;
@@ -83,12 +76,10 @@ void update()
     if (ball.y > r_paddle.y + (r_paddle.h/2))
     {
         r_paddle.y += SPEED;
-        std::cout << "1\n";
     }
     if (ball.y < r_paddle.y + (r_paddle.h/2))
     {
         r_paddle.y -= SPEED;
-        std::cout << "2\n";
     }
 
     if (ball.x <= 0)
@@ -203,8 +194,8 @@ int main()
             frameCount = 0;
         }
 
-        update();
         input();
+        update();
         render();
     }
 
